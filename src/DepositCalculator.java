@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class DepositCalculator {
 
     public static void main(String[] args) {
-        new calculateDeposit().calculateOfAmount();
+        new DepositCalculator().calculateOfAmount(); //исправила calculateDeposit на DepositCalculator
     }
     double calculateComplexPercent(double amount,double yearRate, int depositPeriod) {
        double pay = amount * Math.pow((1 + yearRate / 12), 12 * depositPeriod);
@@ -12,7 +12,7 @@ public class DepositCalculator {
     double calculateSimplePercent(double amount,double yearRate, int depositPeriod) {
          return getRoundValue(amount + amount * yearRate * depositPeriod, 2);
     }
-    double getRoundValue(double value, int places) {
+    double getRoundValue(double value, int places) { // возможно можно добавить пустую строку между 14 и 15 строками
         double ScaLe = Math.pow(10, places);
             return Math.round(value * ScaLe) / ScaLe;
     }
@@ -36,7 +36,7 @@ public class DepositCalculator {
            if (action == 1) {
                outOfAmount = calculateSimplePercent(amount, 0.06, period);
            } else if (action == 2) {
-               outOfAmount = calculateComplexPercent(amount, 0.06, period)
+               outOfAmount = calculateComplexPercent(amount, 0.06, period); // добавила ;
            }
         System.out.println("Результат вклада: " + amount + " за " + period + " лет превратятся в " + outOfAmount);
     }
